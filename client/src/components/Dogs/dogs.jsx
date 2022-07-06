@@ -5,7 +5,7 @@ import {getRazas, emptyfilteredDogs, paginacion, sortByName, actualizaOrden} fro
 import Dog from '../Dog/dog'; 
 import Paginado from "../Paginado/Paginado.jsx";
 import { Link } from 'react-router-dom'
-import Order from "../Order/order.jsx";
+//import Order from "../Order/order.jsx";
 import './dogs.css'
 import { ASCENDENTE, DESCENDENTE } from "../../constantes/sort"
 let asc="asc"
@@ -33,14 +33,12 @@ export default function Dogs() {
     currentDogs = fDogs.slice(indexOfFirstDog, indexOfLastDog); 
    } else currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog); 
 
- let ord = useSelector((state) => state.orden)
+ let orden = useSelector((state) => state.orden)
       
  const paginado = (pageNumber) => {
   setCurrentPage(pageNumber);
 }   
-//ver cómo funciona esto:
-const [orden, setOrden] = useState('');
-const [valor, setValor] = useState(1);
+ 
 
 return (
   <div>     

@@ -49,13 +49,11 @@ var {id} = useParams()
     dispatch(getDogsById(id))
   }, [])
 
-  if (!detailDog){
-    //window.alert('aca')
+  if (!detailDog){ 
     history.push('/')
     return ('error al recibir el id '+ id)
     
    }
-
  
 
     return (  

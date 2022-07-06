@@ -163,10 +163,10 @@ const CreateDog = () => {
          min="1"
          max="50"
         />
-       <select name="selectTemperament">
+       {/* <select name="selectTemperament">
         <option value="value2" selected>Value 2</option>
         <option value="value3">Value 3</option>
-      </select>
+      </select> */}
 
     
       </div>
