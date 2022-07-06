@@ -1,0 +1,25 @@
+.dogDetail {
+
+ }
+
+ body {
+    /* background-image: url('https://www.google.com.co/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png') !important; */
+ }
+.imgDetail {     
+    border:4px solid white;  
+}
+
+.titleDetail{
+font-size: x-large;
+font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+.dogProfile{    
+    border: 1px solid red;    
+    text-transform: capitalize;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;        
+}
+
+.temperamento {
+    max-width: 500px;
+}

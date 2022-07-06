@@ -1,0 +1,23 @@
+h1 {
+    font-size: large;
+}
+
+.circular--landscape {
+    border-radius: 10%;
+  }
+
+.cardDog {
+  display: inline-table;
+  max-width: 50px;
+  margin: 2em;
+} 
+
+a {
+  text-decoration: none;
+  font-family: monospace;
+  color:black;  
+}
+
+.cardDog img {
+  border:4px solid white;
+}
