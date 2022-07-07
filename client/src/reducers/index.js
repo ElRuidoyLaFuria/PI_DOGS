@@ -1,18 +1,33 @@
 
-import {GET_RAZAS, GET_DOGS_BY_NAME, GET_DOGS_BY_ID , CURRENT_DOGS, SORT, SORT_BY_NAME, SORT_BY_WEIGHT, ACTUALIZA_ORDEN, EMPTY_FILTERED_DOGS, EMPTY_DETAIL_DOG } from "../actions/index.js"
-import  {ASCENDENTE, DESCENDENTE} from "../constantes/sort"
+import {
+  GET_RAZAS,
+  GET_TEMPERAMENTS,
+  GET_DOGS_BY_NAME,
+  GET_DOGS_BY_ID,
+  CURRENT_DOGS,
+  SORT,
+  SORT_BY_NAME,
+  SORT_BY_WEIGHT,
+  ACTUALIZA_ORDEN,
+  EMPTY_FILTERED_DOGS,
+  EMPTY_DETAIL_DOG,
+} from "../actions/index.js";
 
-const initialState = { 
-  //dogDetail: {},    
-  dogs: [], 
-  filteredDogs: [],  
+import  {
+  ASCENDENTE, DESCENDENTE
+} from "../constantes/sort"
+
+const initialState = {
+  //dogDetail: {},
+  dogs: [],
+  filteredDogs: [],
   detailDog: {},
   orden: [],
-  currentPage: 1 //ver si se puede poner en
+  temperamets: [],
+  currentPage: 1, //ver si se puede poner en
   //otro lado
-
   //{"id":1,"name":"Affenpinscher","img":"BJa4kxc4X"},{"id":2,"name":"Afghan Hound","img":"hMyT4CDXR"}
-}
+};
 
 export default function reducer(state = initialState, action){
 
@@ -31,6 +46,12 @@ export default function reducer(state = initialState, action){
           //filteredDogs: action.payload                   
           }
 
+        case GET_TEMPERAMENTS:
+          return {
+            ...state,
+            temperaments: action.payload
+          }
+        
         case GET_DOGS_BY_NAME:
           return {
             ...state,
@@ -39,10 +60,7 @@ export default function reducer(state = initialState, action){
             dogs: [...state.dogs, ...action.payload]           
           }
 
-        case GET_DOGS_BY_ID:   
-       // window.alert('-->')
-        //if (!action.payload)
-        //window.alert(action.id)
+        case GET_DOGS_BY_ID:          
         if (action.id){          
           action.payload = state.dogs.find(element => element.id === action.id)           
         }      

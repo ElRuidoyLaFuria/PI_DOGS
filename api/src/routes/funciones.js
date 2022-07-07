@@ -1,10 +1,9 @@
 module.exports = function filterTemperaments(temperaments){     
- 
+
     const filteredTemperaments=[]
     const arr = temperaments.filter(element=> element!== undefined && element !== null)
     
-     arr.forEach((element)=>{ 
-         console.log(element)   
+     arr.forEach((element)=>{           
         element.split(',').map((element)=>{        
           element = element.trim()        
           if (!filteredTemperaments.includes(element))

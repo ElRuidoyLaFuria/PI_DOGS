@@ -1,15 +1,27 @@
 import axios from 'axios';
 
+
+//export const CURRENT_DOGS = "CURRENT_DOGS"
+//export const SORT = "SORT"
+
+//SORTS
+export const SORT_BY_NAME = 'SORT_BY_NAME';
+export const SORT_BY_WEIGHT = 'SORT_BY_WEIGHT';
+
+//EMPTYS
+export const EMPTY_DETAIL_DOG = 'EMPTY_DETAIL_DOG';
+export const EMPTY_FILTERED_DOGS = 'EMPTY_FILTERED_DOGS';
+
+//GETS
 export const GET_RAZAS = "GET_RAZAS"
 export const GET_DOGS_BY_NAME = "GET_DOG_BY_NAME"
 export const GET_DOGS_BY_ID = "GET_DOGS_BY_ID"
-export const CURRENT_DOGS = "CURRENT_DOGS"
-export const SORT = "SORT"
-export const SORT_BY_NAME = 'SORT_BY_NAME';
+export const GET_TEMPERAMENTS = 'GET_TEMPERAMENTS';
+
+//OTHERS
 export const ACTUALIZA_ORDEN = 'ACTUALIZA_ORDEN';
-export const EMPTY_FILTERED_DOGS = 'EMPTY_FILTERED_DOGS';
-export const SORT_BY_WEIGHT = 'SORT_BY_WEIGHT';
-export const EMPTY_DETAIL_DOG = 'EMPTY_DETAIL_DOG';
+
+
 
 
 // export const ADD_DOG = "ADD_DOG"
@@ -79,8 +91,24 @@ export function getDogsById(id){
 
     }  
 
-      
-  
+export function getTemperaments(){
+
+  axios.get('http://localhost:3001/temperaments')
+  .then((respuesta)=>{
+      dispatch({
+        type: GET_TEMPERAMENTS,       
+        payload: respuesta.data         
+      })    
+     },
+     (err)=>{
+      dispatch({
+        type: GET_DOGS_BY_ID,       
+        id: parseInt(id)         
+      })    
+     })  
+
+} 
+ 
 
 // export function paginacion(currentDogs){  
 // return {

@@ -2,9 +2,9 @@ import './CreateDog.css'
 
 import axios from 'axios';
 import React from 'react';
-
+import { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useState } from 'react-router-dom';
 import { AddDog } from '../../actions';
 
 // Fijense en los test que SI O SI tiene que ser un functional component, de otra forma NO VAN A PASAR LOS TEST
@@ -20,8 +20,6 @@ function toUppercase(string){
   arr.unshift(varSplit) 
   return arr.join('') 
   }
-  
-
 
 
 const CreateDog = () => { 
@@ -38,8 +36,10 @@ const CreateDog = () => {
       temperamets: []
 
     });
+
+  const [stateTemperaments, setTemperaments] = React.useState({})
     
-    let history = useHistory();
+  let history = useHistory();
 
     const handleChange = e => { 
 
@@ -74,9 +74,25 @@ const CreateDog = () => {
       });
       
       }
-     
-    
+   
+  
+  
+//   .then(temperaments=>{ 
+//    // setTemperaments(temperaments)
+//   console.log(temperaments)
+//  })
+//axios.get('http://localhost:3001/temperamentos') 
+axios.get('http://localhost:3001/dogs?name=german') 
+useEffect(()=>{
  
+
+}, [])
+//console.log(stateTemperaments)
+  /*
+  useEuseState
+  
+
+*/
   return (
  
 <div>

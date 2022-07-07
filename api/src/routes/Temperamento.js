@@ -22,10 +22,11 @@ router.get('/', async(req, res, next)=>{
     temperamentsPromiseApi = axios.get('https://api.thedogapi.com/v1/breeds'+'?api_key='+ API_KEY);  
     temperamentsPromiseApi.then((respuesta)=>{
     let temperaments = respuesta.data.map(dog => dog.temperament)
+     
     if (temperaments){
       //filterTemperaments(temperaments)
-      filterTemperaments = filterTemperaments(temperaments)
-      res.status(200).send(filterTemperaments)
+    let filteredTemperaments = filterTemperaments(temperaments)
+      res.status(200).send(filteredTemperaments)
     }  
      })
      .catch((err)=> next(err))
