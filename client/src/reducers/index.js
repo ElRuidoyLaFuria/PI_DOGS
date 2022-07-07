@@ -3,9 +3,7 @@ import {
   GET_RAZAS,
   GET_TEMPERAMENTS,
   GET_DOGS_BY_NAME,
-  GET_DOGS_BY_ID,
-  CURRENT_DOGS,
-  SORT,
+  GET_DOGS_BY_ID,  
   SORT_BY_NAME,
   SORT_BY_WEIGHT,
   ACTUALIZA_ORDEN,
@@ -30,9 +28,9 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action){
-
+  
     switch (action.type) {
-
+      
         // case ADD_DOG:
         //     return{
         //         state,
@@ -46,7 +44,7 @@ export default function reducer(state = initialState, action){
           //filteredDogs: action.payload                   
           }
 
-        case GET_TEMPERAMENTS:
+        case GET_TEMPERAMENTS:      
           return {
             ...state,
             temperaments: action.payload
@@ -95,25 +93,7 @@ export default function reducer(state = initialState, action){
         }    
  */
 
-        case SORT:         
-        // window.alert(JSON.stringify(state.currentDogs))
-        //let orderdedDogs = [...state.currentDogs]
-        
-        let orderdedDogs = [...state.currentDogs]
-        
-        orderdedDogs.sort((a,b)=>{
-          if (a.name < b.name) {return action.payload === ASCENDENTE ? -1 : 1}
-          if (a.name > b.name) {return action.payload === ASCENDENTE ? 1: -1}
-          return 0; 
-        })
          
-        return{
-          ...state,
-         //dogs: orderdedDogs,
-         //filteredDogs: orderdedDogs,
-         currentDogs:[{"id":1,"name":"Affenpinscher","img":"BJa4kxc4X"},{"id":2,"name":"Afghan Hound","img":"hMyT4CDXR"}]
-        }    
-   
         case SORT_BY_NAME:
         
             const sortedName = action.payload === 'asc' ?

@@ -5,7 +5,7 @@ import React from 'react';
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { useHistory, useState } from 'react-router-dom';
-import { AddDog } from '../../actions';
+import { AddDog, getTemperaments } from '../../actions';
 
 // Fijense en los test que SI O SI tiene que ser un functional component, de otra forma NO VAN A PASAR LOS TEST
 // Deben usar Hooks para que los test pasen.
@@ -39,7 +39,35 @@ const CreateDog = () => {
 
   const [stateTemperaments, setTemperaments] = React.useState({})
     
-  let history = useHistory();
+  let  history = useHistory()
+  let dispatch = useDispatch();
+
+ 
+  
+  //.then((data)=>{window.alert(data)})
+  //.then((respuesta)=>window.alert(respuesta))
+
+  useEffect(() => {
+    dispatch(getTemperaments())
+      //.then((respuesta) => {window.alert(respuesta.data) }, (reason) => window.alert(reason))
+  }
+    ,[dispatch])
+
+      
+    //.then((respuesta)=>{},(err)=>{window.alert(err)})
+     //}, (reason)=>{"error:"+ window.alert(reason)}
+      
+      
+
+    // .then((respuesta)=>{window.alert("--->"+respuesta)}
+    // ,()=>{window.alert("Se produjo un error.")}))
+    
+  
+  
+  
+    
+    
+  
 
     const handleChange = e => { 
 
@@ -55,7 +83,7 @@ const CreateDog = () => {
     };
 
     const handleSubmit = e => { 
-      //window.alert('llegué')     
+           
       e.preventDefault();
       //Doy de alta el nombre del perro en mayúsculas
       //para que cuando haga el sort funcione bien
@@ -72,21 +100,12 @@ const CreateDog = () => {
       .catch(function () {        
         window.alert("Dog already found.");
       });
-      
-      }
-   
-  
-  
-//   .then(temperaments=>{ 
-//    // setTemperaments(temperaments)
-//   console.log(temperaments)
-//  })
-//axios.get('http://localhost:3001/temperamentos') 
-axios.get('http://localhost:3001/dogs?name=german') 
-useEffect(()=>{
- 
+      }   
+     
+      useEffect(()=>{
+        
+      }, [])
 
-}, [])
 //console.log(stateTemperaments)
   /*
   useEuseState

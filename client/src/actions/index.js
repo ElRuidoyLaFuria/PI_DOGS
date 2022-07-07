@@ -1,8 +1,4 @@
-import axios from 'axios';
-
-
-//export const CURRENT_DOGS = "CURRENT_DOGS"
-//export const SORT = "SORT"
+import axios from 'axios'; 
 
 //SORTS
 export const SORT_BY_NAME = 'SORT_BY_NAME';
@@ -20,9 +16,6 @@ export const GET_TEMPERAMENTS = 'GET_TEMPERAMENTS';
 
 //OTHERS
 export const ACTUALIZA_ORDEN = 'ACTUALIZA_ORDEN';
-
-
-
 
 // export const ADD_DOG = "ADD_DOG"
 // export const GET_DOGS = "GET_DOGS"
@@ -42,8 +35,7 @@ export function getRazas(){
 
 export function getDogsByName(name){
   
-  return async function(dispatch){   
-    
+  return async function(dispatch){ 
      axios.get('http://localhost:3001/dogs?name=' + name) 
        .then(        
         respuesta=>{  
@@ -59,19 +51,11 @@ export function getDogsByName(name){
             })
            
          
-        }
-    
-    
-    )
-    
-
-      
-     
+        })
   }
 }
 
-export function getDogsById(id){
-  //window.alert(1)
+export function getDogsById(id){  
   return async function(dispatch){    
     axios.get('http://localhost:3001/dogs/' + id)
     .then((respuesta)=>{
@@ -91,38 +75,43 @@ export function getDogsById(id){
 
     }  
 
-export function getTemperaments(){
-
-  axios.get('http://localhost:3001/temperaments')
-  .then((respuesta)=>{
+export function getTemperaments() {
+  return async function(dispatch) {
+    const temperaments = axios.get("http://localhost:3001/temperamentos");
+    temperaments.then(
+      (respuesta) => {
+        return respuesta;
+      },
+      (err) => {
+        return Promise.reject(err);
+      }
+    );
+  };
+}  
+   
+  
+  
+   
+  
+  
+  /*
+  .then(
+    (respuesta) => {
       dispatch({
-        type: GET_TEMPERAMENTS,       
-        payload: respuesta.data         
-      })    
-     },
-     (err)=>{
-      dispatch({
-        type: GET_DOGS_BY_ID,       
-        id: parseInt(id)         
-      })    
-     })  
-
-} 
- 
-
-// export function paginacion(currentDogs){  
-// return {
-//   type: CURRENT_DOGS,       
-//   payload: currentDogs
-// }
-// }
-
-export function sort(order){
-  return {     
-      type: SORT,       
-      payload: order
-  }
-}
+        type: GET_RAZAS,
+        payload: respuesta.data
+      })
+       //return true
+       //window.alert("-->>"+(respuesta.data))
+     })
+     */
+  //    (err) => {
+  //      return false
+  //      // window.alert("Se produjo un error." + err)
+  //    }
+  //  )  
+   
+  
 
 export function sortByName(payload) {  
   return {  
